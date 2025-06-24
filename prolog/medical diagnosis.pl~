@@ -1,0 +1,31 @@
+%defining facts
+% Facts about symptoms
+symptom(john, fever).
+symptom(john, cough).
+symptom(sue,cough).
+symptom(sue, headache).
+
+% Rules to determine if a person has flu or cold
+has_flu(X) :-
+    symptom(X, fever),
+    symptom(X, cough).
+
+has_cold(X) :-
+    symptom(X, cough),
+    symptom(X, headache).
+
+% General rule to check diagnosis based on symptoms
+diagnose(X, flu) :-
+    has_flu(X).
+
+diagnose(X, cold) :-
+    has_cold(X).
+
+% Utility to display diagnosis
+check_diagnosis(Person, Diagnosis) :-
+    diagnose(Person, Diagnosis),
+    format('~w might have ~w.~n', [Person, Diagnosis]).
+
+% Example queries
+% ?- check_diagnosis(john, Diagnosis).
+% ?- check_diagnosis(sue, Diagnosis).

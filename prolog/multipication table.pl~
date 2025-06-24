@@ -1,0 +1,16 @@
+mulTable(N,End):-
+    multable(N,1,End).
+
+mulTable1(_,start,End):-
+    start>End.
+mulTable(N,counter,End):-
+    counter=<End,
+    write(N),
+    write('X'),
+    write(Counter),
+    write('='),
+    Mul is N * Counter,
+    write(Mul),nl,
+    NewCounter is Counter +1,
+    multable(N,NewCounter,End).
+

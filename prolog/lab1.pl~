@@ -1,0 +1,9 @@
+%prolog program to implement friend of friend
+% Define facts
+friend(charles, carlos).
+friend(carlos, oscal).
+friend(charles, norris).
+
+
+friendsoffriends(X, Y) :- friends(X,CommonPerson),
+    friends(CommonPerson,Y).

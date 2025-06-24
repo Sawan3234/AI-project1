@@ -1,0 +1,11 @@
+% Facts defining links (edges) between nodes
+link(bahrain,saudi).
+link(bahrain,japan).
+link(saudi,australia).
+link(saudi,china).
+link(monza,miami).
+link(miami,monaco).
+link(monaco,monza).
+path(circuit,circuit).
+path(Startcircuit,Endcircuit):-link(Startcircuit,Nextcircuit),
+    path(Nextcircuit,Endcircuit).
